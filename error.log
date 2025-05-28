@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/joshuafreeman/Desktop/webbots/newsbot/run.py", line 1, in <module>
+    from fetchers.reddit_fetcher import get_reddit_articles
+  File "/Users/joshuafreeman/Desktop/webbots/newsbot/fetchers/__init__.py", line 1, in <module>
+    from .reddit_fetcher import get_articles as get_reddit_articles
+ImportError: cannot import name 'get_articles' from 'fetchers.reddit_fetcher' (/Users/joshuafreeman/Desktop/webbots/newsbot/fetchers/reddit_fetcher.py)

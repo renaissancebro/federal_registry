@@ -23,5 +23,9 @@ def get_reddit_articles(subreddit="technology", limit=10):
         })
 
     print(f"[reddit_fetcher] Fetched {len(articles)} posts from r/{subreddit}")
+    for article in articles:
+        print(article)
     return articles
+if __name__ == "__main__":
+    get_reddit_articles()
 
