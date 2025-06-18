@@ -21,6 +21,6 @@ def sanitize_url_for_filename(url):
     parsed = urlparse(url)
     path = parsed.netloc + parsed.path  # combine domain + path
     path = re.sub(r'^www\.', '', path)  # remove www
-    path = re.sub(r'[^a-zA-Z0-9]+', '_', path)  # replace non-alphanumerics with 
-    print(path)_
+    path = re.sub(r'[^a-zA-Z0-9]+', '_', path)  # replace non-alphanumerics with
+    print(path)
     return path.strip('_').lower()
