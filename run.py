@@ -1,4 +1,3 @@
-from fetchers.reddit_fetcher import get_reddit_articles
 from fetchers.rss_fetcher import fetch_rss_feed
 from parser import parse_articles
 from utils import save_to_json
