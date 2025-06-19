@@ -12,7 +12,7 @@ def get_last_rss_entry(url):
 
     entry = parse_articles(entries)[0]  # Assumes parse_articles returns list of dicts
     site = sanitize_url_for_filename(url)
-    save_to_json([entry], f"output/rss/{site}.json")
+    save_to_json([entry], f"output/rss/{site}")
 
     # Save if it's new
     if save_entry_if_new(entry, table=site):
