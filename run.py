@@ -2,7 +2,9 @@ from fetchers.rss_fetcher import fetch_rss_feed
 from parser import parse_articles
 from utils import save_to_json, sanitize_url_for_filename
 from monitor_utils.check import save_entry_if_new
-from datetime import datetime
+
+table = "federal_registry"
+site = table
 
 def get_last_rss_entry(url):
     entries = fetch_rss_feed(url, limit=1)
@@ -15,11 +17,11 @@ def get_last_rss_entry(url):
     save_to_json([entry], f"output/rss/{site}")
 
     # Save if it's new
-    if save_entry_if_new(entry, table=site):
-        print(f"[+] New entry saved for {site}")
+    if save_entry_if_new(entry, table):
+        print(f"[+] New entry saved for {table}")
         # TODO: trigger email/webhook here
     else:
-        print(f"[-] No new entry for {site}")
+        print(f"[-] No new entry for {table}")
 
 def run():
     rss_sources = [

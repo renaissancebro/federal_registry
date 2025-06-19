@@ -1,3 +1,5 @@
+# utils.py
+
 import json
 import os
 from datetime import datetime
@@ -8,7 +10,7 @@ from urllib.parse import urlparse
 def save_to_json(data, base_path):
     date_str = datetime.now().strftime("%Y-%m-%d")
     full_path = f"{date_str}_{base_path}.json"
-
+    print(base_path)
     os.makedirs(os.path.dirname(full_path), exist_ok=True)
     with open(full_path, "w") as f:
         json.dump(data, f, indent=2 )

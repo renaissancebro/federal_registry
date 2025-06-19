@@ -10,7 +10,7 @@ cursor.execute("ALTER TABLE federalregister_gov_api_v1_documents_rss RENAME TO f
 cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
 print("[✓] Existing tables:", cursor.fetchall())
 try:
-    cursor.execute("ALTER TABLE federal_registry ADD COLUMN link TEXT")
+    cursor.execute("ALTER TABLE federal_register_entries ADD COLUMN summary TEXT")
 except sqlite3.OperationalError as e:
     if "duplicate column name" not in str(e):
         raise  # Only suppress if it's the expected error
