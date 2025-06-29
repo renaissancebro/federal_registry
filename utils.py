@@ -26,3 +26,23 @@ def sanitize_url_for_filename(url):
     path = re.sub(r'[^a-zA-Z0-9]+', '_', path)  # replace non-alphanumerics with
     print(path)
     return path.strip('_').lower()
+
+import re
+
+def keyword_search(prompt: str, documents: list, case_insensitive: bool = True):
+    flags = re.IGNORECASE if case_insensitive else 0
+    keywords = prompt.split()  # naive split; could replace with tokenizer or keyword extractor
+    pattern = r"|".join(re.escape(k) for k in keywords)
+    regex = re.compile(pattern, flags)
+
+    results = []
+    for doc in documents:
+        if isinstance(doc, dict):
+            text = doc.get("summary", "")  # or whatever field you're targeting
+        else:
+            text = str(doc)
+
+        if regex.search(text):
+            results.append(doc)
+
+    return results
